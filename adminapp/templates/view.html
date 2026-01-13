@@ -10,12 +10,9 @@
             <tr>
                 <th>Employee ID</th>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
                 <th>Job</th>
-                <th>Salary</th>
                 <th>Date of Joining</th>
-                <th>Address</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +22,11 @@
                 <td>{{ employee.empname }}</td>
                 <td>{{ employee.emp_job }}</td>
                 <td>{{ employee.emp_DOJ }}</td>
-
+                <td>
+                    <a href="{% url 'view_employee' employee.empid %}">View</a> |
+                    <a href="{% url 'edit_employee' employee.empid %}">Edit</a> |
+                    <a href="{% url 'delete_employee' employee.empid %}">Delete</a>
+                </td>
             </tr>
             {% empty %}
             <tr>
