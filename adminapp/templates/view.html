@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} View Employees {% endblock %}
+
+{% block content %}
+
+    <h1>View Employees</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Job</th>
+                <th>Salary</th>
+                <th>Date of Joining</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.empid }}</td>
+                <td>{{ employee.empname }}</td>
+                <td>{{ employee.emp_job }}</td>
+                <td>{{ employee.emp_DOJ }}</td>
+
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8">No employees found.</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+{% endblock %}

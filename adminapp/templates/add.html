@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %} Add User {% endblock %}
+
+{% block content %}
+
+    <h1>Add New User</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div>
+            {{ form.empid.label_tag }}
+            {{ form.empid }}
+            {{ form.empid.errors }}
+        </div>
+        <div>
+            {{ form.empname.label_tag }}
+            {{ form.empname }}
+            {{ form.empname.errors }}
+        </div>
+        <div>
+            {{ form.emp_email.label_tag }}
+            {{ form.emp_email }}
+            {{ form.emp_email.errors }}
+        </div>
+        <div>
+            {{ form.emp_ph.label_tag }}
+            {{ form.emp_ph }}
+            {{ form.emp_ph.errors }}
+        </div>
+        <div>
+            {{ form.emp_job.label_tag }}
+            {{ form.emp_job }}
+            {{ form.emp_job.errors }}
+        </div>
+        <div>
+            {{ form.emp_sal.label_tag }}
+            {{ form.emp_sal }}
+            {{ form.emp_sal.errors }}
+        </div>
+        <div>
+            {{ form.emp_DOJ.label_tag }}
+            {{ form.emp_DOJ }}
+            {{ form.emp_DOJ.errors }}
+        </div>
+        <div>
+            {{ form.emp_address.label_tag }}
+            {{ form.emp_address }}
+            {{ form.emp_address.errors }}
+        </div>
+        <button type="submit">Add User</button>
+    </form>
+{% endblock %}
