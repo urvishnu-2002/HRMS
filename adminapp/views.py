@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import EmployeeForm
 from .models import Employee
 
@@ -19,3 +19,15 @@ def add(request):
 def view(request):
     employees = Employee.objects.all()
     return render(request, 'view.html', {'employees': employees})
+
+def view_employee(request, id):
+    employee = get_object_or_404(Employee, empid=id)
+    return render(request, 'view_employee', {'employee':employee})
+
+def edit_employee(request, id):
+    employee = get_object_or_404(Employee, empid=id)
+    return render(request, 'edit_employee', {'employee':employee})
+
+def delete_employee(request, id):
+    employee = get_object_or_404(Employee, empid=id)
+    return render(request, 'delete_employee', {'employee':employee})
